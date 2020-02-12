@@ -8,21 +8,21 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import fruitList from './data/products.json';
-import getProductsImg from './services/getProductsImg'
 
-export default class HelloWorldApp extends Component {
-  
+export default class ReactNativeShoppe extends Component {
   render() {
-    // console.log(getProductsImg)
     return (
-      <View style={{ flex: 1,  flexDirection: 'column' }}>
+      <View style={{ width:"100%", flex: 1, flexDirection: 'row', flexWrap:"wrap"}}>
         {fruitList.map(fruit=>{
+          const imgURL = "https://fruitshoppe.firebaseapp.com/images/"+fruit.image;
           return <View key={fruit.title} tyle={{width:'100%'}} >
-            {/* <Image
-              style={{width: 50, height: 50}}
-              source={getProductsImg(fruit)}
-            /> */}
-            <Text>{fruit.title}</Text>
+            <Image
+              style={{width: 150, height: 150}}
+              source={{uri: imgURL}}
+            />
+            <Text style={{fontSize: 30}}>
+              {fruit.title}
+            </Text>
           </View>
         })}
       </View>
