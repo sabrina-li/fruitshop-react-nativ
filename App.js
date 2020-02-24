@@ -6,13 +6,13 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { ScrollView, Text, View, Image, Button } from 'react-native';
 import fruitList from './data/products.json';
 
 export default class ReactNativeShoppe extends Component {
   render() {
     return (
-      <View style={{ width:"100%", flex: 1, flexDirection: 'row', flexWrap:"wrap"}}>
+      <ScrollView style={{ width:"100%", flex: 1, flexDirection: 'row', flexWrap:"wrap"}}>
         {fruitList.map(fruit=>{
           const imgURL = "https://fruitshoppe.firebaseapp.com/images/"+fruit.image;
           return <View key={fruit.title} tyle={{width:'100%'}} >
@@ -23,9 +23,13 @@ export default class ReactNativeShoppe extends Component {
             <Text style={{fontSize: 30}}>
               {fruit.title}
             </Text>
+            <Button onPress={() => {
+            alert('You tapped the button!'+fruit.title);
+            }}
+            title="add to cart"></Button>
           </View>
         })}
-      </View>
+      </ScrollView>
     );
   }
 }
