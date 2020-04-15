@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.ReactActivity;
-import com.fullstory.FS;
 
 public class MainActivity extends ReactActivity {
 
@@ -25,7 +24,6 @@ public class MainActivity extends ReactActivity {
   @Nullable
   @Override
   public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-    FS.addClass(parent,FS.UNMASK_CLASS);
     return super.onCreateView(parent, name, context, attrs);
   }
 }
